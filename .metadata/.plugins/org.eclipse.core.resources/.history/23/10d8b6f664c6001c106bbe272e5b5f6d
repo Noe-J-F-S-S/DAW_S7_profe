@@ -1,0 +1,39 @@
+package controlador;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.*;
+
+/**
+ * Servlet implementation class SLista_empleados
+ */
+@WebServlet("/SLista_empleados")
+public class SLista_empleados extends HttpServlet {
+	String driver="com.mysql.cj.jdbc.Dricer";
+	String cadena="jdbc:mysql://localhost/empresa2022";
+	String usuario="root";
+	String clave="";
+	Conecction conn;
+    
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		processRequest(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		processRequest(request, response);
+	}
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+	public void conexion_bd() {
+		
+	}
+	
+
+}

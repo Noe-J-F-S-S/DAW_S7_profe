@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+C:\Users\HALION\Desktop\4to_Ciclo\Desarrollo de aplicaciones web\7-Patrón MVC con JDBC\EjemploProfe\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2168626379.index
+\Semana07\src\main\java

@@ -1,0 +1,57 @@
+package controlador;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.*;
+import modelo.BEmpleado;
+import javax.swing.JOptionPane;
+
+/**
+ * Servlet implementation class SActualizar_empleado
+ */
+@WebServlet("/SActualizar_empleado")
+public class SActualizar_empleado extends HttpServlet {
+	String driver="com.mysql.cj.jdbc.Driver";
+	String cadena="jdbc:mysql://localhost/empresa2022";
+	String usuario="root";
+	String clave="";
+	Connection conn;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		processRequest(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		processRequest(request, response);
+	}
+	
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String codigo=request.getParameter("codigo");
+		double sueldo=Double.parseDouble(request.getParameter("sueldo"));
+		Statement sen;
+		String consulta;
+		conexion_bd();
+		try {
+			sen=conn.createStatement();
+			consulta="update empleado set sueldo ='"+sueldo+"'where codigo ="+codigo;
+		}catch(SQLException e) {
+			JOptionPane.showMessageDialog(null,"Error en la consulta");
+		}
+		
+	}
+	
+	public void conexion_bd() {
+		try {
+			Class.forName(driver);
+			conn=DriverManager.getConnection(cadena,usuario,clave);
+		}catch(ClassNotFoundException e1) {
+			JOptionPane.showMessageDialog(null, "Error en el driver");
+		}catch(SQLException e2) {
+			JOptionPane.showMessageDialog(null, "Error en la conexión");
+		}
+	}
+
+}
